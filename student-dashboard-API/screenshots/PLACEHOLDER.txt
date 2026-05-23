@@ -1,0 +1,14 @@
+Screenshots Directory
+
+Add screenshots here after running the application:
+
+1. login.png  - Login page
+2. register.png - Register page
+3. student-dashboard.png - Student dashboard
+4. mentor-dashboard.png - Mentor dashboard
+5. courses.png - Course listing
+6. analytics.png - Analytics page
+7. recommendations.png - Recommendations page
+8. profile.png - Profile page
+9. export.png - Export reports page
+10. lesson-detail.png - Lesson detail view
