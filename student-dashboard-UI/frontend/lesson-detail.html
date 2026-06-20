@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson — Progressive Student Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-logo"><div class="logo-icon">PS</div><span>ProgDash</span></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section"><div class="nav-section-title">Main</div>
+        <a class="nav-item" href="student-dashboard.html"><span class="nav-icon">📊</span> Dashboard</a>
+        <a class="nav-item active" href="courses.html"><span class="nav-icon">📚</span> Courses</a>
+        <a class="nav-item" href="analytics.html"><span class="nav-icon">📈</span> Analytics</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">Account</div>
+        <a class="nav-item" href="profile.html"><span class="nav-icon">👤</span> Profile</a>
+      </div>
+    </nav>
+    <div class="sidebar-footer"><a class="nav-item logout-item" href="#" id="logout-btn"><span class="nav-icon">🚪</span> Logout</a></div>
+  </aside>
+  <div class="main-content">
+    <header class="topbar">
+      <div class="topbar-left"><button class="menu-toggle" id="menu-toggle">☰</button><h1 class="page-title" id="course-title">Course</h1></div>
+      <div class="topbar-right"><button class="profile-btn" onclick="window.location.href='profile.html'"><div class="profile-avatar" id="profile-avatar">?</div><span class="profile-name" id="profile-name">User</span></button></div>
+    </header>
+    <div class="page-content">
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:24px">
+        <div><div id="lesson-detail"></div><div id="lesson-content"></div></div>
+        <div>
+          <div class="glass-card">
+            <div class="glass-card-header"><div class="glass-card-title">Course Info</div></div>
+            <div id="course-meta" style="font-size:13px;color:var(--text-secondary);display:flex;flex-direction:column;gap:8px;margin-bottom:16px"></div>
+            <p id="course-description" style="font-size:13px;color:var(--text-muted);margin-bottom:16px"></p>
+            <div class="glass-card-title" style="margin-bottom:12px">Lessons</div>
+            <div id="lessons-list" class="lesson-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="toast-container" class="toast-container"></div>
+<script src="js/bundle.js"></script>
+</body>
+</html>

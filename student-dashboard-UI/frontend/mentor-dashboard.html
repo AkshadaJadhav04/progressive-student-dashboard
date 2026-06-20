@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentor Dashboard — Progressive Student Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-logo"><div class="logo-icon">PS</div><span>ProgDash</span></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section"><div class="nav-section-title">Main</div>
+        <a class="nav-item active" href="mentor-dashboard.html"><span class="nav-icon">📊</span> Dashboard</a>
+        <a class="nav-item" href="courses.html"><span class="nav-icon">📚</span> Courses</a>
+        <a class="nav-item" href="analytics.html"><span class="nav-icon">📈</span> Analytics</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">Account</div>
+        <a class="nav-item" href="profile.html"><span class="nav-icon">👤</span> Profile</a>
+        <a class="nav-item" href="export.html"><span class="nav-icon">📥</span> Export Reports</a>
+      </div>
+    </nav>
+    <div class="sidebar-footer"><a class="nav-item logout-item" href="#" id="logout-btn"><span class="nav-icon">🚪</span> Logout</a></div>
+  </aside>
+  <div class="main-content">
+    <header class="topbar">
+      <div class="topbar-left"><button class="menu-toggle" id="menu-toggle">☰</button><h1 class="page-title">Mentor Dashboard</h1></div>
+      <div class="topbar-right">
+        <div style="position:relative">
+          <button class="notification-btn" id="notification-btn">🔔 <span class="notification-badge">2</span></button>
+          <div class="notification-dropdown" id="notification-dropdown">
+            <div class="notif-header">Notifications</div>
+            <div class="notif-list">
+              <div class="notif-item unread"><div class="notif-title">New student enrolled</div><div class="notif-time">1 hour ago</div></div>
+              <div class="notif-item unread"><div class="notif-title">Course review needed</div><div class="notif-time">5 hours ago</div></div>
+            </div>
+          </div>
+        </div>
+        <button class="profile-btn" onclick="window.location.href='profile.html'"><div class="profile-avatar" id="profile-avatar">?</div><span class="profile-name" id="profile-name">Mentor</span></button>
+      </div>
+    </header>
+    <div class="page-content">
+      <div id="stats-grid" class="stats-grid"></div>
+      <div class="dashboard-grid">
+        <div>
+          <div class="glass-card" style="margin-bottom:24px"><div class="glass-card-header"><div class="glass-card-title">Student Performance</div></div>
+            <div class="table-container"><table><thead><tr><th>Student</th><th>Email</th><th>Completed</th><th>Time</th><th>Progress</th><th>%</th><th>Streak</th></tr></thead><tbody id="students-table-body"></tbody></table></div>
+          </div>
+          <div class="glass-card"><div class="glass-card-header"><div class="glass-card-title">Course Engagement</div></div><div id="engagement-list"></div></div>
+        </div>
+        <div>
+          <div class="glass-card" style="margin-bottom:24px"><div class="glass-card-header"><div class="glass-card-title">⚠️ Weak Students</div></div><div id="weak-students"></div></div>
+          <div class="glass-card"><div class="glass-card-header"><div class="glass-card-title">Engagement Rate</div></div><div class="chart-container chart-container-sm"><canvas id="engagementChart"></canvas></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="toast-container" class="toast-container"></div>
+<script src="js/bundle.js"></script>
+</body>
+</html>

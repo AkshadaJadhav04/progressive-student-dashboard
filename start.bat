@@ -18,7 +18,7 @@ echo.
 echo ========================================
 echo  Both servers started!
 echo.
-echo  Frontend: http://localhost:3000/frontend/pages/login.html
+echo  Frontend: http://localhost:3000/frontend/login.html
 echo  Backend:  http://localhost:8000/api/
 echo  API Docs: http://localhost:8000/api/docs/
 echo.

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommendations — Progressive Student Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-logo"><div class="logo-icon">PS</div><span>ProgDash</span></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section"><div class="nav-section-title">Main</div>
+        <a class="nav-item" href="student-dashboard.html"><span class="nav-icon">📊</span> Dashboard</a>
+        <a class="nav-item" href="courses.html"><span class="nav-icon">📚</span> Courses</a>
+        <a class="nav-item" href="analytics.html"><span class="nav-icon">📈</span> Analytics</a>
+        <a class="nav-item active" href="recommendations.html"><span class="nav-icon">💡</span> Recommendations</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">Account</div>
+        <a class="nav-item" href="profile.html"><span class="nav-icon">👤</span> Profile</a>
+        <a class="nav-item" href="export.html"><span class="nav-icon">📥</span> Export Reports</a>
+      </div>
+    </nav>
+    <div class="sidebar-footer"><a class="nav-item logout-item" href="#" id="logout-btn"><span class="nav-icon">🚪</span> Logout</a></div>
+  </aside>
+  <div class="main-content">
+    <header class="topbar">
+      <div class="topbar-left"><button class="menu-toggle" id="menu-toggle">☰</button><h1 class="page-title">Recommendations</h1></div>
+      <div class="topbar-right"><button class="btn btn-primary btn-sm" onclick="generateRecs()">🔄 Generate</button><button class="profile-btn" onclick="window.location.href='profile.html'"><div class="profile-avatar" id="profile-avatar">?</div><span class="profile-name" id="profile-name">User</span></button></div>
+    </header>
+    <div class="page-content">
+      <div class="glass-card">
+        <div class="glass-card-header"><div class="glass-card-title">Personalized Recommendations</div><span style="color:var(--text-muted);font-size:13px">AI-powered suggestions</span></div>
+        <p style="color:var(--text-muted);font-size:13px;margin-bottom:20px">Based on your learning patterns and progress, we recommend the following lessons and courses.</p>
+        <div id="recommendations-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="toast-container" class="toast-container"></div>
+<script src="js/bundle.js"></script>
+</body>
+</html>
