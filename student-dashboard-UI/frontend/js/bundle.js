@@ -120,7 +120,16 @@ var api = {
       }
       return response.json().then(function(data) {
         if (!response.ok) {
-          var msg = data.detail || data.error || JSON.stringify(data);
+          var msg = data.detail || data.error || '';
+          if (!msg && typeof data === 'object') {
+            var messages = [];
+            for (var key in data) {
+              if (Array.isArray(data[key])) {
+                messages.push(data[key][0]);
+              }
+            }
+            msg = messages.join(' ') || JSON.stringify(data);
+          }
           throw new Error(msg);
         }
         return data;
@@ -416,12 +425,16 @@ function initAuthPage() {
   if (registerForm) {
     registerForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      var username = document.getElementById('username').value;
-      var email = document.getElementById('email').value;
+      var username = document.getElementById('username').value.trim();
+      var email = document.getElementById('email').value.trim();
       var password = document.getElementById('password').value;
       var bio = document.getElementById('bio'); var bioVal = bio ? bio.value : '';
       var roleEl = document.querySelector('.role-option.active');
       var role = roleEl ? roleEl.dataset.role : 'student';
+
+      // Replace spaces with underscores for valid Django username
+      username = username.replace(/\s+/g, '_');
+
       var btn = document.getElementById('register-btn');
       if (btn) { btn.disabled = true; btn.textContent = 'Creating account...'; }
 
